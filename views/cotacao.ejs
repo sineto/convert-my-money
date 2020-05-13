@@ -1,0 +1,12 @@
+<%- include('header') %>
+<div>
+	<% if(error) { %>
+		<%= error %>
+	<% } else { %>
+		Cotação do dolar é: <strong><%= cotacao %></strong> <br>
+		Quantidade de dolar desejado é: <strong><%= quantidade %></strong> <br>
+		Total convertidos: <strong><%= conversao %></strong>
+	<% } %>
+
+</div>
+<%- include('footer') %>
