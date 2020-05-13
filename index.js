@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const currency = require('./lib/currency');
 
 const app = express();
 
@@ -14,6 +15,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (request, response) => {
 	response.render('home');
+});
+
+app.get('/cotacao', (request, response) => {
+	const { cotacao, quantidade } = request.query;
+	const conversao = currency.toBrl(cotacao, quantidade)
+
+	if (!cotacao && !quantidade) {
+		response.render('cotacao', {
+			error: 'Valores inválidos!'
+		});
+		return
+	}
+
+	response.render('cotacao', {
+		error: false,
+		cotacao: currency.toMoney(cotacao, 'BRL'),
+		quantidade: currency.toMoney(quantidade, 'USD'),
+		conversao: currency.toMoney(conversao, 'BRL')
+	});
 });
 
 app.listen(3000, err => {
