@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const currency = require('./lib/currency');
+const bcb = require('./lib/bcbapi');
 
 const app = express();
 const PORT = process.env.PORT || 3000
@@ -14,8 +15,11 @@ app.set('views', path.join(__dirname, 'views'));
 // setting a public static server
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (request, response) => {
-	response.render('home');
+app.get('/', async (request, response) => {
+	const cotacao = await bcb.requestCotacao();
+	response.render('home', {
+		cotacao: cotacao
+	});
 });
 
 app.get('/cotacao', (request, response) => {
