@@ -3,6 +3,7 @@ const path = require('path');
 const currency = require('./lib/currency');
 
 const app = express();
+const PORT = process.env.PORT || 3000
 
 // setting a view engine
 app.set('view engine', 'ejs');
@@ -36,7 +37,7 @@ app.get('/cotacao', (request, response) => {
 	});
 });
 
-app.listen(3000, err => {
+app.listen(PORT, err => {
 	if (err !== undefined) {
 		console.log('Find a error: ', err);
 		return
