@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (request, response) => {
-	const cotacao = await bcb.requestCotacao();
+	const cotacao = await bcb.requestExchange();
 	response.render('home', {
 		cotacao: cotacao
 	});
