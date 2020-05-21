@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const currency = require('./lib/currency');
 const bcb = require('./lib/bcbapi');
-
 const app = express();
 const PORT = process.env.PORT || 3000
 

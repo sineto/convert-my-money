@@ -19,13 +19,20 @@ button {
 }
 
 input {
+  border: 1px solid #9fa19b;
+  margin: 8px 0;
+  padding: 10px 15px;
+  display: block;
+}
+
+input {
   font-size: 18px;
   background: #fdfdfd;
 }
 
-button {
+.pure-button {
   text-transform: uppercase;
-  background: #d8d8d8;
+  /* background: #d8d8d8; */
   width: 100%;
 }
 

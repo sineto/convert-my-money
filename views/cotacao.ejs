@@ -3,9 +3,22 @@
 	<% if(error) { %>
 		<%= error %>
 	<% } else { %>
-		Cotação do dolar é: <strong><%= cotacao %></strong> <br>
-		Quantidade de dolar desejado é: <strong><%= quantidade %></strong> <br>
-		Total convertidos: <strong><%= conversao %></strong>
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Cotação</th>
+                <th>Quantidade</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= cotacao %></td>
+                <td><%= quantidade %></td>
+                <td><strong><%= conversao %></strong></td>
+            </tr>
+        </tbody>
+    </table>
 	<% } %>
 
 </div>
