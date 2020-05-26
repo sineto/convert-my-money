@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const currency = require('./lib/currency');
 const bcb = require('./lib/bcbapi');
+
 const app = express();
 const PORT = process.env.PORT || 3000
 
@@ -13,6 +14,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // setting a public static server
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/jquery', express.static(path.join(__dirname, '/node_modules/jquery/dist/')));
 
 app.get('/', async (request, response) => {
 	const cotacao = await bcb.requestExchange();
