@@ -4,7 +4,9 @@
     {
       "src": "./index.js",
       "use": "@now/node-server",
-      "config": { "includeFiles": ["public/**"] }
+      "config": {
+        "includeFiles": ["public/**"]
+      }
     }
   ],
   "routes": [

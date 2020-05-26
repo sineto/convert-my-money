@@ -33,9 +33,12 @@ convert-my-money
 │
 └───public
 │   └───style.css
+│   └───validator.js
 │   └───logo.png
 │
 └───lib
+    └───bcbapi.js
+    └───bcbapi.test.js
     └───currency.js
     └───currency.test.js
 ```

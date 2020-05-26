@@ -13,11 +13,11 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // setting a public static server
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/jquery', express.static(path.join(__dirname, '/node_modules/jquery/dist/')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', async (request, response) => {
 	const cotacao = await bcb.requestExchange();
+	console.log(cotacao);
 	response.render('home', {
 		cotacao: cotacao
 	});
